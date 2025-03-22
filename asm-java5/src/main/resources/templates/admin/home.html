@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <th:block th:replace="~{user/_meta}" />
+  <title>Trang chủ Admin</title>
+</head>
+
+<body>
+<th:block th:replace="~{admin/_headerAdmin}" />
+<section class="section-content padding-y">
+  <div class="container">
+    <div class="card bg-light">
+      <div class="card-body p-5">
+        <h1 class="display-5 mb-5">Thống Kê Cửa Hàng</h1>
+        <div class="row">
+          <div class="col-6 col-lg-3">
+            <figure class="card">
+              <div class="p-3">
+                <h4 class="title">${requestScope.totalUsers}</h4>
+                <span>Tổng người dùng</span>
+              </div>
+            </figure>
+          </div>
+          <div class="col-6 col-lg-3">
+            <figure class="card">
+              <div class="p-3">
+                <h4 class="title">${requestScope.totalCategories}</h4>
+                <span>Tổng thể loại hàng</span>
+              </div>
+            </figure>
+          </div>
+          <div class="col-6 col-lg-3">
+            <figure class="card">
+              <div class="p-3">
+                <h4 class="title">${requestScope.totalProducts}</h4>
+                <span>Tổng sản phẩm</span>
+              </div>
+            </figure>
+          </div>
+          <div class="col-6 col-lg-3">
+            <figure class="card">
+              <div class="p-3">
+                <h4 class="title">${requestScope.totalOrders}</h4>
+                <span>Tổng đơn hàng đã bán</span>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div> <!-- card.// -->
+  </div> <!-- container.// -->
+</section> <!-- section-content.// -->
+
+<th:block th:replace="~{admin/_footerAdmin}" />
+</body>
+
+</html>

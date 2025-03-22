@@ -1,0 +1,36 @@
+<section class="section-content mb-5">
+    <div class="container">
+      <h3 class="pb-2">Favorite Products</h3>
+      <div class="row item-grid">
+         <div th:each="product : ${favoriteProducts}" class="col-xl-3 col-lg-4 col-md-6">
+           <div class="card p-3 mb-4">
+             <a th:href="@{/product(id=${product.id})}" class="img-wrap text-center">
+                <img width="200" height="200" class="img-fluid" th:src="@{/image/{url}(url=${product.image})}" th:alt="${product.name}" />
+             </a>
+             <figcaption class="info-wrap mt-2">
+                <a th:href="@{/product(id=${product.id})}" class="title td-text" th:text="${product.name}"></a>
+                <div>
+                  <div th:if="${product.discount == 0}">
+                    <span class="price mt-1 fw-bold">
+                      <span th:text="${#numbers.formatInteger(product.price, 0, 'COMMA')}"></span>₫
+                    </span>
+                  </div>
+                  <div th:if="${product.discount > 0}">
+                    <span class="price mt-1 fw-bold">
+                      <span th:text="${#numbers.formatInteger(product.price * (100 - product.discount) / 100, 0, 'COMMA')}"></span>₫
+                    </span>
+                    <span class="ms-2 text-muted text-decoration-line-through">
+                      <span th:text="${#numbers.formatInteger(product.price, 0, 'COMMA')}"></span>₫
+                    </span>
+                    <span class="ms-2 badge bg-info">
+                      -<span th:text="${product.discount}"></span>%
+                    </span>
+                  </div>
+                </div>
+              </figcaption>
+           </div>
+         </div> <!-- col.// -->
+      </div> <!-- row.// -->
+    </div> <!-- container.// -->
+  </section> <!-- section-content.// -->
+  
